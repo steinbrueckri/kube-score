@@ -18,7 +18,7 @@ before_script:
 
 script:
   - docker build -t ${DOCKER_REPOSITORY} .
-  - docker run --rm -it ${DOCKER_REPOSITORY} --help
+  - docker run --rm -it ${DOCKER_REPOSITORY} kube-score -help
 
 after_script:
   - docker images
