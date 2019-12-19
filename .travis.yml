@@ -3,7 +3,8 @@ env:
     # Should be encrypted or set as private travis variables (in travis settings):
     # DOCKER_HUB_USERNAME
     # DOCKER_HUB_PASSWORD
-    - DOCKER_REPOSITORY="z3rogate/kube-score"
+    - REPO="z3rogate/kube-score"
+    - COMMIT=${TRAVIS_COMMIT::8}
 
 services:
   - docker
@@ -17,38 +18,16 @@ before_script:
   - echo $TRAVIS_REPO_SLUG
 
 script:
-  - docker build -t ${DOCKER_REPOSITORY} .
+  - docker build -t ${REPO} .
 
 after_script:
   - docker images
 
-before_deploy:
-    # Master is always lastest
-    - if [ ! -z "$TRAVIS_TAG" ]; then export IMAGE_TAG=$TRAVIS_TAG; else export IMAGE_TAG=$TRAVIS_BRANCH; fi
-    # Upload image to docker registry only on PUSH
-    - docker tag $DOCKER_REPOSITORY:latest $DOCKER_REPOSITORY:$IMAGE_TAG;
-    - docker login --username=$DOCKER_HUB_USERNAME --password=$DOCKER_HUB_PASSWORD;
-    - docker push $DOCKER_REPOSITORY:$IMAGE_TAG;
-    - if [ "$TRAVIS_BRANCH" = master ]; then
-          export COMMIT_TAG="$TRAVIS_BRANCH"_"$TRAVIS_COMMIT";
-          docker tag $DOCKER_REPOSITORY:latest $DOCKER_REPOSITORY:$COMMIT_TAG;
-          docker push $DOCKER_REPOSITORY:$COMMIT_TAG;
-          docker push $DOCKER_REPOSITORY:latest;
-      fi;
-
-deploy:
-
-    # Force before_deploy for branches
-    -
-        provider: script
-        script: /bin/true
-        on:
-            all_branches: true
-
-    # Force before_deploy for tags
-    -
-        provider: script
-        script: /bin/true
-        on:
-            tags: true
-            all_branches: true
+after_success:
+  - docker login --username=$DOCKER_HUB_USERNAME --password=$DOCKER_HUB_PASSWORD;
+  - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
+  - echo $REPO:$TAG:$COMMIT
+  - docker build -f Dockerfile -t $REPO:$COMMIT .
+  - docker tag $REPO:$COMMIT $REPO:$TAG
+  - docker tag $REPO:$COMMIT $REPO:travis-$TRAVIS_BUILD_NUMBER
+  - docker push $REPO
