@@ -1,8 +1,8 @@
 # Kube-score
 
+![Dependabot](https://flat.badgen.net/dependabot/steinbrueckri/docker-kube-score?icon=dependabot)
 [![Build Status](https://travis-ci.com/steinbrueckri/docker-kube-score.svg?branch=master)](https://travis-ci.com/steinbrueckri/docker-kube-score)
-[![](https://images.microbadger.com/badges/image/z3rogate/kube-score.svg)](https://microbadger.com/images/z3rogate/kube-score "Get your own image badge on microbadger.com")
-[![](https://images.microbadger.com/badges/version/z3rogate/kube-score.svg)](https://microbadger.com/images/z3rogate/kube-score "Get your own version badge on microbadger.com")
+[![](https://images.microbadger.com/badges/version/z3rogate/kube-score.svg)](https://hub.docker.com/r/z3rogate/kube-score)
 
 # Why?
 
