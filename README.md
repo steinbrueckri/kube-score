@@ -1,16 +1,15 @@
 # Kube-score
 
 ![Dependabot](https://flat.badgen.net/dependabot/steinbrueckri/docker-kube-score?icon=dependabot)
-[![Build Status](https://travis-ci.com/steinbrueckri/docker-kube-score.svg?branch=master)](https://travis-ci.com/steinbrueckri/docker-kube-score)
-[![](https://images.microbadger.com/badges/version/z3rogate/kube-score.svg)](https://hub.docker.com/r/z3rogate/kube-score)
+[![](https://images.microbadger.com/badges/version/steinbrueckri/kube-score.svg)](https://hub.docker.com/r/steinbrueckri/kube-score)
 
-# Why?
+## Why
 
 If you search the official `kube-score` image please go to [zegl/kube-score](https://github.com/zegl/kube-score/)).
 
 The Official Image didn't fit for my usecase so I had to adjust it a bit so I could easily use it in a Google Cloud Build.
 
-# What?
+## What
 
 `kube-score` is a tool that performs static code analysis of your Kubernetes object definitions.
 
@@ -18,7 +17,7 @@ The output is a list of recommendations of what you can improve to make your app
 
 You can test kube-score out in the browser with the [online demo](https://kube-score.com) ([source](https://github.com/kube-score/web)).
 
-# How?
+## Hows
 
 ```yml
 steps:
@@ -28,7 +27,7 @@ steps:
   #############################################################################################################
 
   - id: kube-score monitoring
-    name: 'z3rogate/kube-score:latest
+    name: 'steinbrueckri/kube-score:latest
     entrypoint: 'bash'
     args:
       - -c
