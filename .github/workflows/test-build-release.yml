@@ -1,6 +1,6 @@
 
 name: test-build-release
-on: push
+on: [push, pull_request]
 env:
   IMAGE_TAG: ${{ github.sha }}
   IMAGE: ${{ github.repository }}
