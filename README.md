@@ -2,6 +2,7 @@
 
 ![Dependabot](https://flat.badgen.net/dependabot/steinbrueckri/docker-kube-score?icon=dependabot)
 [![](https://images.microbadger.com/badges/version/steinbrueckri/kube-score.svg)](https://hub.docker.com/r/steinbrueckri/kube-score)
+![test-build-release](https://github.com/steinbrueckri/kube-score/workflows/test-build-release/badge.svg)
 
 ## Why
 
