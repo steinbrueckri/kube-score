@@ -1,8 +1,9 @@
 # Kube-score
 
-![Dependabot](https://flat.badgen.net/dependabot/steinbrueckri/docker-kube-score?icon=dependabot)
-[![](https://images.microbadger.com/badges/version/steinbrueckri/kube-score.svg)](https://hub.docker.com/r/steinbrueckri/kube-score)
+[![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=steinbrueckri/kube-score)](https://dependabot.com)
 ![test-build-release](https://github.com/steinbrueckri/kube-score/workflows/test-build-release/badge.svg)
+![Docker Image Version (latest semver)](https://img.shields.io/docker/v/steinbrueckri/kube-score)
+![Docker Pulls](https://img.shields.io/docker/pulls/steinbrueckri/kube-score)
 
 ## Why
 
