@@ -19,7 +19,7 @@ The output is a list of recommendations of what you can improve to make your app
 
 You can test kube-score out in the browser with the [online demo](https://kube-score.com) ([source](https://github.com/kube-score/web)).
 
-## Hows
+## How
 
 ```yml
 steps:
