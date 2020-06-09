@@ -7,7 +7,6 @@
 
 ## Why
 
-
 If you search the official `kube-score` image please go to [zegl/kube-score](https://github.com/zegl/kube-score/)).
 
 The Official Image didn't fit for my usecase so I had to adjust it a bit so I could easily use it in a Google Cloud Build.
