@@ -14,12 +14,6 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Commit test
-        uses: wagoid/commitlint-github-action@v1
-
-      - name: Markdown test
-        uses: actionshub/markdownlint@v1.0.0
-
       - name: Dockerfile test
         uses: burdzwastaken/hadolint-action@1.6.0
         env:
