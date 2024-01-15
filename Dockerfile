@@ -1,6 +1,6 @@
 FROM zegl/kube-score:v1.17.0 AS Artifact
 
-FROM debian:stable-20231218-slim
+FROM debian:stable-20240110-slim
 COPY --from=Artifact /kube-score /usr/local/bin/kube-score
 RUN chmod +x /usr/local/bin/kube-score
 WORKDIR /workspace
