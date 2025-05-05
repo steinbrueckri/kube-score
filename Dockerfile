@@ -1,4 +1,4 @@
-FROM zegl/kube-score:v1.19.0 AS Artifact
+FROM zegl/kube-score:v1.20.0 AS Artifact
 
 FROM debian:stable-20250428-slim
 COPY --from=Artifact /kube-score /usr/local/bin/kube-score
